@@ -2,7 +2,7 @@
 day2.py
 """
 
-def run_1202(data):
+def part1(data):
     d = list(data)
     i = 0
     opcode = d[i]
@@ -16,11 +16,28 @@ def run_1202(data):
         i += 4
     return d
 
+def part2(data, output):
+    for noun in range(100):
+        for verb in range(100):
+            d = data
+            data[1] = noun
+            data[2] = verb
+            result = part1(data)
+            if result[0] == output:
+                return noun, verb
 
 if __name__ == '__main__':
     with open('data.txt', 'r') as f:
         data = [int(x) for x in f.read().split(',')]
-        data[1] = 12
-        data[2] = 2
-        result = run_1202(data)
-        print(result)
+
+        # Part 1
+        p1_data = data
+        p1_data[1] = 12
+        p1_data[2] = 2
+        part1_result = part1(data)
+        print(f'Part 1: {part1_result}')
+
+        # Part 2
+        output = 19690720
+        part2_result = part2(data,output)
+        part2_answer = 100*part2_result[0] + part2_result[1]
