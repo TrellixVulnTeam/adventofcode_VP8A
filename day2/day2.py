@@ -8,7 +8,7 @@ def run_1202(data):
     opcode = d[i]
     while opcode != 99:
         opcode = d[i]
-        x, y, pos = [d[i+1:i+4]]
+        x, y, pos = d[i+1:i+4]
         if opcode == 1:
             d[pos] = d[x] + d[y]
         elif opcode == 2:
