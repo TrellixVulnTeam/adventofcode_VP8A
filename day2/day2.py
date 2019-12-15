@@ -20,5 +20,7 @@ def run_1202(data):
 if __name__ == '__main__':
     with open('data.txt', 'r') as f:
         data = [int(x) for x in f.read().split(',')]
+        data[1] = 12
+        data[2] = 2
         result = run_1202(data)
         print(result)
