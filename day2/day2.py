@@ -41,3 +41,4 @@ if __name__ == '__main__':
         output = 19690720
         part2_result = part2(data,output)
         part2_answer = 100*part2_result[0] + part2_result[1]
+        print(f'Part 2: {part2_answer}')
