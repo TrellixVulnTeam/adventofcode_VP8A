@@ -24,5 +24,6 @@ if __name__ == '__main__':
     path_1, path_2 = wire_path(wire_1), wire_path(wire_2)
     intersections = [coordinate for coordinate in path_1 if coordinate in path_2]
     part_1 = min(abs(x) + abs(y) for (x,y) in intersections)
+    part_2 = min(path_1[point] + path_2[point] for point in intersections)
 
-    print(f'Part 1: {part_1}')
+    print(f'Part 1: {part_1}, Part 2: {part_2}')
