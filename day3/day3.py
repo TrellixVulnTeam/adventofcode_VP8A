@@ -18,15 +18,11 @@ def wire_path(wires):
 
 if __name__ == '__main__':
     with open('data.txt', 'r') as f:
-        wires = f.read().split('\n')
-        wire_1 = wires[0]
-        wire_2 = wires[1]
-        wire_1, wire_2 = wire_1.split(','), wire_2.split(',')
+        f = f.read().split('\n')
+        wire_1, wire_2 = f[0].split(','), f[1].split(',')
 
-    path_1 = wire_path(wire_1)
-    path_2 = wire_path(wire_2)
+    path_1, path_2 = wire_path(wire_1), wire_path(wire_2)
     intersections = [coordinate for coordinate in path_1 if coordinate in path_2]
-
     part_1 = min(abs(x) + abs(y) for (x,y) in intersections)
 
     print(f'Part 1: {part_1}')
