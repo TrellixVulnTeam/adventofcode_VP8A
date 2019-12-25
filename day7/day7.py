@@ -4,14 +4,11 @@ from intcode import instructions
 from itertools import permutations
 
 def amplifier(data, phase_sequence):
-    inp = 0
+    inp = [0,0]
     for phase in phase_sequence:
-        print(f'Phase is {phase}')
-        output = instructions(data, inp)*phase
-        inp = output
-        print(f'new input is {inp}')
-        print('Phase finished')
-    print('Returning output')    
+        inp[0] = phase
+        output = instructions(data, list(inp))
+        inp[1] = output   
     return output
 
 def sequence_list():
@@ -27,7 +24,6 @@ if __name__ == '__main__':
         output = []
         for phase_sequence in sequence_list:
             output.append(amplifier(data, phase_sequence))
-            print('Phase sequence finished')
-        print(output)
-                
+        print(f'All possible outputs are {output}')
+        print(f'Maximum output is {max(output)}')       
 #intcode.instructions(data,input)
