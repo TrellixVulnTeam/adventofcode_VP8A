@@ -26,13 +26,13 @@ def orbit_transfers(orbits):
         orbit_list.append(you_orbit)
         you_orbit = orbits[you_orbit]
 
-    while san_orbits not in orbit_list:
+    while san_orbit not in orbit_list:
         transfers += 1
-        san_orbits = orbits[san_orbits]
+        san_orbit = orbits[san_orbit]
 
     you_orbits = orbits[you]
 
-    while you_orbits != san_orbits:
+    while you_orbits != san_orbit:
         transfers += 1
         you_orbits = orbits[you_orbits]
 
